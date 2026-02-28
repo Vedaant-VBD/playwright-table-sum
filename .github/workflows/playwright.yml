@@ -1,0 +1,32 @@
+name: Playwright Table Sum
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  scrape:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        playwright install
+
+
+    - name: Run script 24f2001057@ds.study.iitm.ac.in
+      run: |
+        python sum_tables.py
